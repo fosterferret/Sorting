@@ -39,37 +39,27 @@ print(merge_sort([5, 3, 7, 8, 2, 10, 12, 3, 19]))
 
 def merge_in_place(arr, start, mid, end):
     # TO-DO
-
-
     second_start = mid + 1
-
     if (arr[mid] <= arr[second_start]):
         return
-
     while (start <= mid and second_start <= end):
-
         if (arr[start] <= arr[second_start]):
             start += 1
         else:
             value = arr[second_start]
             index = second_start
-
             while (index != start):
                 arr[index] = arr[index - 1]
                 index -= 1
-
             arr[start] = value
-
             start += 1
             mid += 1
             second_start += 1
-
     return arr
 
 
 def merge_sort_in_place(arr, l, r):
     # TO-DO
-    [4,2,3,5]
     if (l < r):
         m = l + (r - l) // 2
         merge_sort_in_place(arr, l, m)
