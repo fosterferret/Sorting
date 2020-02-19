@@ -14,11 +14,6 @@ def merge(left, right):
     merged_arr = merged_arr + left[indexLeft:] + right[indexRight:]
     return merged_arr
 
-# [2,4,1,3]
-# merge [2,4] [1,3]
-# [2] [4]
-# [2]
-
 # TO-DO: implement the Merge Sort function below USING RECURSION
 
 
@@ -40,22 +35,19 @@ print(merge_sort([5, 3, 7, 8, 2, 10, 12, 3, 19]))
 def merge_in_place(arr, start, mid, end):
     # TO-DO
     second_start = mid + 1
-    if (arr[mid] <= arr[second_start]):
-        return
     while (start <= mid and second_start <= end):
-        if (arr[start] <= arr[second_start]):
+        if (arr[second_start] >= arr[start]):
             start += 1
         else:
-            value = arr[second_start]
-            index = second_start
-            while (index != start):
-                arr[index] = arr[index - 1]
-                index -= 1
+            idx, value = second_start, arr[second_start]
+            while (idx != start):
+                arr[idx] = arr[idx - 1]
+                idx -= 1
             arr[start] = value
-            start += 1
-            mid += 1
-            second_start += 1
+            second_start += 1; start += 1; mid += 1
     return arr
+
+    [4, 5, 3, 6, 7]
 
 
 def merge_sort_in_place(arr, l, r):
